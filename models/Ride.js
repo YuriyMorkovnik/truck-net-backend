@@ -28,6 +28,11 @@ const rideSchema = new Schema({
     type: Schema.Types.ObjectId,
     required: true,
   },
+  status: {
+    type: String,
+    enum: ['active', 'finished'],
+    default: 'active',
+  }
 });
 
 module.exports = mongoose.model('rides', rideSchema);

@@ -9,5 +9,7 @@ router.get('/:id', controller.getById);
 
 router.post('/', controller.create);
 
+router.put('/changeStatus', controller.changeStatus);
+
 
 module.exports = router;

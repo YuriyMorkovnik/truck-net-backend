@@ -61,3 +61,18 @@ module.exports.create = async (req, res) => {
     errorHandler(res, error);
   }
 };
+
+module.exports.changeStatus = (req, res) => {
+  const ridesList = req.body;
+  try {
+    ridesList.forEach(async ({ _id, status }) => {
+      await Ride.updateOne({ _id }, { status });
+    })
+  } catch (error) {
+    errorHandler(res, error);
+  }
+
+  res.status(200).json({
+    message: 'okay',
+  })
+};
